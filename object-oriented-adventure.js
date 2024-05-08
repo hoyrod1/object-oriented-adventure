@@ -44,6 +44,7 @@ class Character {
   roll(mod = 0) {
     const result = Math.floor(Math.random() * 20) + 1 + mod;
     console.log(`${this.name} rolled a ${result}.`);
+    return result;
   }
 }
 // const robin = new Character("Robin");
@@ -84,30 +85,43 @@ class Adventurer extends Character {
   }
   // Adventurers have the ability to scout ahead of them.
   scout() {
-    console.log(`${this.name} the ${this.role} is scouting ahead...`);
+    // console.log(`${this.name} the ${this.role} is scouting ahead...`);
     super.roll();
   }
+  // Duel method
+  duel(adventurer) {
+    let player1 = super.roll();
+    let player2 = adventurer;
+    console.log(`Player 1 scored ${player1} and player 2 scored `);
+  }
 }
-const robin = new Adventurer("Robin", "Fighter");
-robin.scout();
+const robin = new Adventurer("Robin", "Wizard");
+const rodney = new Adventurer("Rodney", "Fighter");
+// robin.duel(rodney.scout());
+robin.duel(rodney);
+// robin.scout();
+// rodney.scout();
 // console.log(robin);
 // console.log(adventurer2);
 //---------------------------------------------------------------------------//
 console.log("==================== Part 4: Class Uniforms ====================");
 //===========================================================================//
-class Companion {
-  constructor(food, water, watch) {
-    this.food = food;
-    this.water = water;
-    this.watch = watch;
-  }
-  // Method determines when it is time to eat
-  foodSchedule(timeToEat) {
-    if (timeToEat === this.watch) {
-      console.log(`It is time to eat ${this.food} and drink ${this.water}`);
-    }
-  }
-}
+// class Companion {
+//   constructor(food, water, watch) {
+//     this.food = food;
+//     this.water = water;
+//     this.watch = watch;
+//   }
+//   // Method determines when it is time to eat
+//   foodSchedule(timeToEat) {
+//     if (timeToEat === this.watch) {
+//       console.log(`It is time to eat ${this.food} and drink ${this.water}`);
+//     }
+//   }
+// }
 //---------------------------------------------------------------------------//
 console.log("================== Part 5: Gather your Party ==================");
+//===========================================================================//
+//---------------------------------------------------------------------------//
+console.log("================== Part 6: Developing Skills ==================");
 //===========================================================================//
